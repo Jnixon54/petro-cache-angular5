@@ -1,0 +1,6 @@
+.sidebar-container {
+  float: left;
+  height: 100vh;
+  width: 350px;
+  background-color: green;
+}

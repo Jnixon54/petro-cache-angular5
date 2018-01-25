@@ -1,0 +1,5 @@
+.mapbox-container {
+  float: right;
+  height: 100vh;
+  width: calc(100% - 350px);
+}

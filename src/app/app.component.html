@@ -1,12 +1,5 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<mat-sidenav-container class="example-side-container">
-  <mat-sidenav mode="push" #sidenav class="example-nav">
-    <app-menu></app-menu>
-  </mat-sidenav>
-  <div class="example-sidenav-content">
-    <div class="side-nav-flag" (click)="sidenav.toggle();toggleFlag()">{{sidebarOpen ? "<" : ">"}}</div>
-  </div>
-  <app-mapbox></app-mapbox>
-</mat-sidenav-container>
+<app-sidebar></app-sidebar>
+<app-mapbox></app-mapbox>
+
 
 

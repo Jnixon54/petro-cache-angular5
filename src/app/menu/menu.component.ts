@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  plays = ["play1", "play2", "play3"];
+  selectedPlayName = ""
+  changeSelectedPlay(event) {
+    this.selectedPlayName = event.target.value;
+    console.log(event.target.value)
   }
+  constructor() { }
+  ngOnInit() {}
 
 }
