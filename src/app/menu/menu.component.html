@@ -1,7 +1,7 @@
 <div class="menu-container">
   <select (change) = "changeSelectedPlay($event)">
     <option value="">Select a play to learn more</option>
-    <option *ngFor = "let i of plays">{{i}}</option>
+    <option *ngFor = "let play of plays">{{play}}</option>
   </select>
   <div *ngIf="selectedPlayName.length > 0;">
     <h1>Information for {{selectedPlayName}}</h1>
