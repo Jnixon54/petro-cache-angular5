@@ -1,3 +1,8 @@
-.menu-container {
+.menu-top {
+  height: 35vh;
   text-align: center;
+}
+
+.menu-bottom {
+ height: 50vh;
 }
