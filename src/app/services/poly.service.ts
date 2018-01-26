@@ -4,6 +4,9 @@ import { geoJSON } from 'leaflet';
 import { Observable } from "rxjs/Observable"
 import { Subject } from 'rxjs/Subject';
 
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+
 
 @Injectable()
 export class PolyService {
@@ -18,15 +21,9 @@ export class PolyService {
     });
     return plays;
   }
-  getPlayData(){
-    return this.selectedPlay;
-  }
-  setPlay(play){
-    this.selectedPlay = play;
-    this.selectedPlayID = play.index;
-    console.log(play);
-    this.zoomToPoly(this.selectedPlay.index)
-  }
+  // getPlayData(){
+  //   return this.selectedPlay;
+  // }
   getGeoJsonArray() {
     let arr = [];
     plays.map((play, index) => {
@@ -39,7 +36,7 @@ export class PolyService {
         weight: 1,
         fillOpacity: 0.2,
         onEachFeature: (feature, layer) => {
-          layer.on('click', this.zoomToPoly.bind(this));
+          layer.on('click', this.setPlay.bind(this));
           layer.on('mouseover', () => {
             console.log('mouseover')
           })
@@ -51,18 +48,21 @@ export class PolyService {
   }
   onMouseOver(){};
   subject = new Subject<any>();
-  zoomToPoly(e: any) {
+  playData = new Subject<any>();
+  setPlay(e: any) {
     if(typeof e != 'number') {
       this.selectedPlayID = e.layer.options.index;
-      this.selectedPlay = plays[this.selectedPlayID];
-      console.log(this.selectedPlay);
     } else {
       this.selectedPlayID = e;
-      
     }
-    this.subject.next(this.selectedPlayID)
+    this.selectedPlay = plays[this.selectedPlayID];
+    this.subject.next({ id: this.selectedPlayID, data: this.selectedPlay });
+    this.playData.next(this.selectedPlay);
   }
   getLayerData(): Observable<any> {
     return this.subject.asObservable();
+  }
+  getPlayData(): Observable<any> {
+    return this.playData.asObservable();
   }
 }

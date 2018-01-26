@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { PolyService } from '../services/poly.service';
-
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-menu',
@@ -9,15 +9,24 @@ import { PolyService } from '../services/poly.service';
 })
 export class MenuComponent implements OnInit {
   @Input('title') title;
+  constructor(private cdRef:ChangeDetectorRef, private _polyService: PolyService) { 
+    this.polySubscription = this._polyService.getPlayData().subscribe(data => this.updatePlayData(data))
+  }
   plays = this._polyService.getPlays();
-  selectedPlay;
+  polySubscription: Subscription;
+  selectedPlayData = {};
   selectedPlayName = "";
   changeSelectedPlay(event) {
-    this.selectedPlay = this.plays[event.target.value.split('.')[0]];
-    this.selectedPlayName = event.target.value.split('.')[1].trim();
-    this._polyService.setPlay(this.selectedPlay);
+    let playIndex = this.plays[event.target.value.split('.')[0]].index;
+    this._polyService.setPlay(playIndex);
   }
-  constructor(private _polyService: PolyService) { }
+  updatePlayData(data) {
+    this.selectedPlayData = data;
+    this.selectedPlayName = data.name;
+    this.cdRef.detectChanges();
+  }
   ngOnInit() {  }
-
+  ngOnDestroy() {
+    this.polySubscription.unsubscribe();
+  }
 }

@@ -32,7 +32,7 @@ export class MapboxComponent implements OnInit {
     this.map = map;
   }
   zoomToPolygon(data: any) {
-    this.map.fitBounds(this.polygons[data].getBounds())
+    this.map.fitBounds(this.polygons[data.id].getBounds())
   }
   ngOnInit() {
     // this.arrays = this._polyService.getGeoJsonArray();

@@ -23,50 +23,90 @@ export const plays = [
   {
     name: 'Abo Yeso',
     JSON: aboYesoGeoJSON,
-    color: 'cyan'
+    color: 'cyan',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'Delaware',
     JSON: delawareGeoJSON,
-    color: 'darkred'
+    color: 'darkred',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'BoneSpring',
     JSON: boneSpringGeoJSON,
-    color: 'darkblue'
+    color: 'darkblue',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'Glorieta',
     JSON: glorietaYesoGeoJSON,
-    color: 'hsl(120, 100%, 25%)'
+    color: 'hsl(120, 100%, 25%)',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'Marcellus',
     JSON: marcellusGeoJSON,
-    color: 'purple'
+    color: 'purple',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'Niobrara',
     JSON: niobraraGeoJSON,
-    color: 'red'
+    color: 'red',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'Spraberry',
     JSON: spraberryGeoJSON,
-    color: 'orange'
+    color: 'orange',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'Three Forks',
     JSON: threeForksGeoJSON,
-    color: 'teal'
+    color: 'teal',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },
   {
     name: 'Utica',
     JSON: uticaGeoJSON,
-    color: 'grey'
+    color: 'grey',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   },{ 
     name: 'Bakken',
     JSON: bakkenGeoJSON,
-    color: 'blue'
+    color: 'blue',
+    about: {
+      age: 'Cenomanian to Turonian: 96 to 90 million years',
+      importance: 'The Eagle Ford Shale (EFS) is quite possibly the largest single economic development in the history of the state of Texas and ranks as the largest oil & gas development in the world based on capital invested'
+    }
   }
 ]
