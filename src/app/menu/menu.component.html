@@ -6,9 +6,9 @@
   </select>
 </div>
 <div class="menu-bottom">
-  <div *ngIf="selectedPlayName.length > 0;">
+  <div *ngIf="selectedPlayName;">
     <h2>The {{selectedPlayName}} Basin</h2>
-    <p>Age: {{selectedPlayData.about.age}}</p>
+    <p><span class="emphasize">Age: </span>{{selectedPlayData.about.age}}</p>
     <p>{{selectedPlayData.about.importance}}</p>
   </div>
   <div *ngIf="!selectedPlayName" class="note">
