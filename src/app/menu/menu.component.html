@@ -1,17 +1,17 @@
 <div class="menu-top">
   <h1>{{title}}</h1>
   <select (change) = "changeSelectedPlay($event)">
-    <option value="">Select a basin to learn more</option>
+    <option value="">Select a play to learn more</option>
     <option *ngFor = "let play of plays">{{play.index}}. {{play.name}}</option>
   </select>
 </div>
 <div class="menu-bottom">
   <div *ngIf="selectedPlayName;">
-    <h2>The {{selectedPlayName}} Basin</h2>
+    <h2>The {{selectedPlayName}} Play</h2>
     <p><span class="emphasize">Age: </span>{{selectedPlayData.about.age}}</p>
     <p>{{selectedPlayData.about.importance}}</p>
   </div>
   <div *ngIf="!selectedPlayName" class="note">
-    Select basin from menu or click on map.
+    Select play from menu or click on map.
   </div>
 </div>
