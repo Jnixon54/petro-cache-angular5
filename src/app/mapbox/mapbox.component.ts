@@ -23,8 +23,8 @@ export class MapboxComponent implements OnInit {
     layers: [
       tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
     ],
-    zoomSnap: 0.5,
-    zoom: 4.5,
+    zoomSnap: 0.25,
+    zoom: 4.75,
     center: latLng(39.8, -98.6)
   }
   polygons: Array<any> = this._polyService.getGeoJsonArray();
