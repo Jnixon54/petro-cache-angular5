@@ -30,18 +30,10 @@ export class MapboxComponent implements OnInit {
   private map;
   onMapReady(map: Map) { // Need to look at typing for Map
     this.map = map;
-    console.log(map._layers)
   }
-
   zoomToPolygon(data: any) {
-    if (data.type == "click") {
-      this.map.fitBounds(data.layer.getBounds());
-    } else {
-      this.map.fitBounds(this.polygons[data].getBounds())
-    }
+    this.map.fitBounds(this.polygons[data].getBounds())
   }
-
-  
   ngOnInit() {
     // this.arrays = this._polyService.getGeoJsonArray();
   }

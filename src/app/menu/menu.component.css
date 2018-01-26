@@ -1,8 +1,9 @@
 .menu-top {
-  height: 35vh;
+  height: 100px;
   text-align: center;
 }
 
 .menu-bottom {
  height: 50vh;
+ text-align: center;
 }

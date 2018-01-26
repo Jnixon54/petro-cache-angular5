@@ -7,7 +7,8 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class PolyService {
-  selectedPolygon: any;
+  selectedPlay: any;
+  selectedPlayID: number;
   constructor() {
     
   }
@@ -17,9 +18,14 @@ export class PolyService {
     });
     return plays;
   }
+  getPlayData(){
+    return this.selectedPlay;
+  }
   setPlay(play){
-    this.selectedPolygon = play;
-    this.zoomToPoly(this.selectedPolygon.index)
+    this.selectedPlay = play;
+    this.selectedPlayID = play.index;
+    console.log(play);
+    this.zoomToPoly(this.selectedPlay.index)
   }
   getGeoJsonArray() {
     let arr = [];
@@ -39,17 +45,22 @@ export class PolyService {
           })
         }
       })
-      newPoly.id = index;
       arr.push(newPoly);
     });
-    console.log(arr)
     return arr;
   }
   onMouseOver(){};
   subject = new Subject<any>();
   zoomToPoly(e: any) {
-    this.selectedPolygon = e;
-    this.subject.next(e)
+    if(typeof e != 'number') {
+      this.selectedPlayID = e.layer.options.index;
+      this.selectedPlay = plays[this.selectedPlayID];
+      console.log(this.selectedPlay);
+    } else {
+      this.selectedPlayID = e;
+      
+    }
+    this.subject.next(this.selectedPlayID)
   }
   getLayerData(): Observable<any> {
     return this.subject.asObservable();
