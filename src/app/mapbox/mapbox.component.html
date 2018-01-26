@@ -2,5 +2,6 @@
   <div class="leaflet-container"
        leaflet
        [leafletOptions]="options"
-       [leafletLayers]="polygons"></div>
+       [leafletLayers]="polygons"
+       (leafletMapReady)="onMapReady($event)"></div>
 </div>

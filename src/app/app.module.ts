@@ -8,6 +8,7 @@ import { MapboxComponent } from './mapbox/mapbox.component';
 import { MenuComponent } from './menu/menu.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { PolyService } from './services/poly.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     BrowserAnimationsModule,
     LeafletModule
   ],
-  providers: [],
+  providers: [PolyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
