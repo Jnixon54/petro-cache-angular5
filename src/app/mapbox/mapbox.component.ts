@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { latLng, tileLayer, polygon, geoJSON} from 'leaflet';
-// var plays = require('../../assets/playBoundaries.ts');
-import { plays } from '../../assets/playBoundaries.ts';
+import { plays } from '../../assets/playBoundaries';
 import { PolyService } from '../services/poly.service';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -11,8 +11,9 @@ import { PolyService } from '../services/poly.service';
   styleUrls: ['./mapbox.component.css']
 })
 export class MapboxComponent implements OnInit {
+  polySubscription: Subscription;
   constructor(private _polyService: PolyService) { 
-    this._polyService.getLayerData().subscribe(data => this.zoomToPolygon(data))
+    this.polySubscription = this._polyService.getLayerData().subscribe(data => this.zoomToPolygon(data))
   }
   
   options = {
@@ -24,28 +25,27 @@ export class MapboxComponent implements OnInit {
     center: latLng(39.8, -98.6)
   }
   polygons = this._polyService.getGeoJsonArray();
-  // playsGeoJSON = plays.map((play, index) => {
-    //   geoJSON(play.JSON);
-    // })
-    // polygons = this.playsGeoJSON;
-    // playBoundaries = plays.map((play, index) => {
-      //   let name = ("geojson" + play.name).replace(/ /g, "");
-      //   // let weight = this.state.hover === name ? 3 : 2;
-      // });
+
+  // Get map reference
   private map;
-  onMapReady(map: Map) {
+  onMapReady(map: Map) { // Need to look at typing for Map
     this.map = map;
+    console.log(map._layers)
   }
 
-  zoomToPolygon(data) {
-    // let map = this.onMapReady;
-    console.log(data)
-    this.map.fitBounds(data.layer.getBounds())
-    console.log(this.map)
-    // this.onMapReady;
+  zoomToPolygon(data: any) {
+    if (data.type == "click") {
+      this.map.fitBounds(data.layer.getBounds());
+    } else {
+      this.map.fitBounds(this.polygons[data].getBounds())
+    }
   }
+
   
   ngOnInit() {
     // this.arrays = this._polyService.getGeoJsonArray();
+  }
+  ngOnDestroy() {
+    this.polySubscription.unsubscribe();
   }
 }

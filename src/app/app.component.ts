@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +7,5 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'PetroCache';
+
 }

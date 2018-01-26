@@ -7,46 +7,49 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class PolyService {
-
-
+  selectedPolygon: any;
   constructor() {
     
+  }
+  getPlays(){
+    plays.forEach((play, index) => {
+      play.index = index;
+    });
+    return plays;
+  }
+  setPlay(play){
+    this.selectedPolygon = play;
+    this.zoomToPoly(this.selectedPolygon.index)
   }
   getGeoJsonArray() {
     let arr = [];
     plays.map((play, index) => {
-      arr.push(
-        geoJSON(play.JSON, {
-          index: index,
-          name: play.name,
-          style: {
-            color: play.color
-          },
-          weight: 1,
-          fillOpacity: 0.2,
-          onEachFeature: (feature, layer) => {
-            layer.on('click', this.zoomToPoly.bind(this));
-            layer.on('mouseover', () => {
-              console.log('mouseover')
-            })
-          }
-        }));
+      let newPoly = geoJSON(play.JSON, {
+        index: index,
+        name: play.name,
+        style: {
+          color: play.color
+        },
+        weight: 1,
+        fillOpacity: 0.2,
+        onEachFeature: (feature, layer) => {
+          layer.on('click', this.zoomToPoly.bind(this));
+          layer.on('mouseover', () => {
+            console.log('mouseover')
+          })
+        }
+      })
+      newPoly.id = index;
+      arr.push(newPoly);
     });
+    console.log(arr)
     return arr;
-  }
-
-  onClick(e) {
-    console.log(e);
-    // map.fitBounds(e.layer.getBounds());
-    // this.zoomToPoly;
   }
   onMouseOver(){};
   subject = new Subject<any>();
   zoomToPoly(e: any) {
+    this.selectedPolygon = e;
     this.subject.next(e)
-    // onMapReady(map: Map){
-      // map.fitBounds(e.layer.getBounds());
-    // }
   }
   getLayerData(): Observable<any> {
     return this.subject.asObservable();

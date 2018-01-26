@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PolyService } from '../services/poly.service';
+
 
 @Component({
   selector: 'app-menu',
@@ -6,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  plays = ["play1", "play2", "play3"];
+  plays = this._polyService.getPlays();
+  selectedPlay;
   selectedPlayName = ""
   changeSelectedPlay(event) {
-    this.selectedPlayName = event.target.value;
-    console.log(event.target.value)
+    this.selectedPlay = this.plays[event.target.value.split('.')[0]];
+    this.selectedPlayName = event.target.value.split('.')[1].trim();
+    this._polyService.setPlay(this.selectedPlay);
   }
-  constructor() { }
-  ngOnInit() {}
+  constructor(private _polyService: PolyService) { }
+  ngOnInit() {  }
 
 }

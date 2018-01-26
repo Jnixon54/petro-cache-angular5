@@ -1,12 +1,11 @@
 <div class="menu-top">
   <select (change) = "changeSelectedPlay($event)">
     <option value="">Select a play to learn more</option>
-    <option *ngFor = "let play of plays">{{play}}</option>
+    <option *ngFor = "let play of plays">{{play.index}}. {{play.name}}</option>
   </select>
   <div *ngIf="selectedPlayName.length > 0;">
-    <h1>Information for {{selectedPlayName}}</h1>
+    <h1>Information for the {{selectedPlayName}} basin</h1>
   </div>
 </div>
 <div class="menu-bottom">
-
 </div>
