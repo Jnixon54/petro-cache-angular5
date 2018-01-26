@@ -8,14 +8,15 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  @Input('title') title;
+  @Input('title') title: string;
   constructor(private cdRef:ChangeDetectorRef, private _polyService: PolyService) { 
     this.polySubscription = this._polyService.getPlayData().subscribe(data => this.updatePlayData(data))
   }
-  plays = this._polyService.getPlays();
+  plays: Array<any> = this._polyService.getPlays();
   polySubscription: Subscription;
-  selectedPlayData = {};
-  selectedPlayName = "";
+  selectedPlayData;
+  selectedPlayName: string = "";
+
   changeSelectedPlay(event) {
     let playIndex = this.plays[event.target.value.split('.')[0]].index;
     this._polyService.setPlay(playIndex);
@@ -25,7 +26,7 @@ export class MenuComponent implements OnInit {
     this.selectedPlayName = data.name;
     this.cdRef.detectChanges();
   }
-  ngOnInit() {  }
+  ngOnInit() { }
   ngOnDestroy() {
     this.polySubscription.unsubscribe();
   }

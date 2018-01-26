@@ -16,7 +16,10 @@ export class MapboxComponent implements OnInit {
     this.polySubscription = this._polyService.getLayerData().subscribe(data => this.zoomToPolygon(data))
   }
   
-  options = {
+  options: {layers: any,
+            zoomSnap: number,
+            zoom: number,
+            center: any} = {
     layers: [
       tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
     ],
@@ -24,11 +27,11 @@ export class MapboxComponent implements OnInit {
     zoom: 4.5,
     center: latLng(39.8, -98.6)
   }
-  polygons = this._polyService.getGeoJsonArray();
+  polygons: Array<any> = this._polyService.getGeoJsonArray();
 
   // Get map reference
   private map;
-  onMapReady(map: Map) { // Need to look at typing for Map
+  onMapReady(map: any) { // Need to look at typing for Map
     this.map = map;
   }
   zoomToPolygon(data: any) {

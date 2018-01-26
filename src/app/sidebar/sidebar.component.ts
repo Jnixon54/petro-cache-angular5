@@ -6,9 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  @Input('title') title;
+  @Input('title') title: string;
   constructor() { }
-
   ngOnInit() {
   }
 

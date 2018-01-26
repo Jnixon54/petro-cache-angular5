@@ -11,4 +11,7 @@
     <p>Age: {{selectedPlayData.about.age}}</p>
     <p>{{selectedPlayData.about.importance}}</p>
   </div>
+  <div *ngIf="!selectedPlayName" class="note">
+    Select basin from menu or click on map.
+  </div>
 </div>

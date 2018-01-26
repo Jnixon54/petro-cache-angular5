@@ -4,8 +4,14 @@
 }
 
 .menu-bottom {
- height: 50vh;
+ height: calc(100vh - 150px);
  width: 90%;
  text-align: center;
  margin: 0 auto;
+}
+
+.note {
+  width: 100%;
+  text-align: center;
+  color: rgb(171, 171, 171);
 }

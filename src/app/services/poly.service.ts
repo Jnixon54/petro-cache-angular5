@@ -4,26 +4,19 @@ import { geoJSON } from 'leaflet';
 import { Observable } from "rxjs/Observable"
 import { Subject } from 'rxjs/Subject';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-
-
-
 @Injectable()
 export class PolyService {
   selectedPlay: any;
   selectedPlayID: number;
-  constructor() {
-    
-  }
+  plays: any;
+  
+  constructor() { }
   getPlays(){
     plays.forEach((play, index) => {
       play.index = index;
     });
     return plays;
   }
-  // getPlayData(){
-  //   return this.selectedPlay;
-  // }
   getGeoJsonArray() {
     let arr = [];
     plays.map((play, index) => {
@@ -37,16 +30,16 @@ export class PolyService {
         fillOpacity: 0.2,
         onEachFeature: (feature, layer) => {
           layer.on('click', this.setPlay.bind(this));
-          layer.on('mouseover', () => {
-            console.log('mouseover')
-          })
+          // layer.on('mouseover', () => {
+          //   console.log('mouseover')
+          // })
         }
       })
       arr.push(newPoly);
     });
     return arr;
   }
-  onMouseOver(){};
+  // onMouseOver(){};
   subject = new Subject<any>();
   playData = new Subject<any>();
   setPlay(e: any) {

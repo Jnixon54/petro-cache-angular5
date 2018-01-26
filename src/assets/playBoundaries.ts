@@ -1,16 +1,16 @@
-var eagleFordGeoJSON = require('./geoJSON/ShalePlay_EagleFord_Boundary_EIA_Aug2015_v2.json');
-var aboYesoGeoJSON = require('./geoJSON/ShalePlay_AboYeso_Boundary_EIA_Aug2015_v2.json');
-var bakkenGeoJSON = require('./geoJSON/ShalePlay_Bakken_Boundary_EIA_Aug2015_v2.json');
-var boneSpringGeoJSON = require('./geoJSON/ShalePlay_BoneSpring_Boundary_EIA_Aug2015_v2.json');
-var delawareGeoJSON = require('./geoJSON/ShalePlay_Delaware_Boundary_EIA_Aug2015_v2.json');
-var glorietaYesoGeoJSON = require('./geoJSON/ShalePlay_GlorietaYeso_Boundary_EIA_Aug2015_v2.json');
-var marcellusGeoJSON = require('./geoJSON/ShalePlay_Marcellus_Boundary_EIA_Aug2015_v2.json');
-var niobraraGeoJSON = require('./geoJSON/ShalePlay_Niobrara_Boundary_EIA_Aug2015_v2.json');
-var spraberryGeoJSON = require('./geoJSON/ShalePlay_Spraberry_Boundary_EIA_Aug2015_v2.json');
-var threeForksGeoJSON = require('./geoJSON/ShalePlay_ThreeForks_Boundary_EIA_Aug2015_v2.json');
-var uticaGeoJSON = require('./geoJSON/ShalePlay_Utica_Boundary_EIA_May2016.json');
+let eagleFordGeoJSON = require('./geoJSON/ShalePlay_EagleFord_Boundary_EIA_Aug2015_v2.json');
+let aboYesoGeoJSON = require('./geoJSON/ShalePlay_AboYeso_Boundary_EIA_Aug2015_v2.json');
+let bakkenGeoJSON = require('./geoJSON/ShalePlay_Bakken_Boundary_EIA_Aug2015_v2.json');
+let boneSpringGeoJSON = require('./geoJSON/ShalePlay_BoneSpring_Boundary_EIA_Aug2015_v2.json');
+let delawareGeoJSON = require('./geoJSON/ShalePlay_Delaware_Boundary_EIA_Aug2015_v2.json');
+let glorietaYesoGeoJSON = require('./geoJSON/ShalePlay_GlorietaYeso_Boundary_EIA_Aug2015_v2.json');
+let marcellusGeoJSON = require('./geoJSON/ShalePlay_Marcellus_Boundary_EIA_Aug2015_v2.json');
+let niobraraGeoJSON = require('./geoJSON/ShalePlay_Niobrara_Boundary_EIA_Aug2015_v2.json');
+let spraberryGeoJSON = require('./geoJSON/ShalePlay_Spraberry_Boundary_EIA_Aug2015_v2.json');
+let threeForksGeoJSON = require('./geoJSON/ShalePlay_ThreeForks_Boundary_EIA_Aug2015_v2.json');
+let uticaGeoJSON = require('./geoJSON/ShalePlay_Utica_Boundary_EIA_May2016.json');
 
-export const plays = [
+export const plays: Array<any> = [
   {
     name: 'EagleFord',
     JSON: eagleFordGeoJSON,
